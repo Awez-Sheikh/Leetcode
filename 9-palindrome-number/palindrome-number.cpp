@@ -1,17 +1,18 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        if (x < 0) return false;
-
-        int n = x;
-        long long revNum = 0; // Use long long to avoid overflow
-
-        while (n > 0) {
-            int d = n % 10;
-            revNum = revNum * 10 + d;
-            n = n / 10;
+        if(x<0) return false;
+        string s=to_string(x); 
+        int n=s.size();
+        int i=0;
+        int j=n-1;
+        while(i<j){
+            if(s[i]!=s[j]){
+                return false;
+            }
+            i++;
+            j--;
         }
-
-        return revNum == x;
+        return true;
     }
 };
