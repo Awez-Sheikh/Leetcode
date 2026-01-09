@@ -1,18 +1,17 @@
 class Solution {
 public:
     int reverse(int x) {
-        int revnum = 0;
-        while (x != 0) {
-            int ld = x % 10;
+        int  rev=0;
+        while(x!=0){
+            int ld=x%10;
 
-            
-            if (revnum > INT_MAX / 10 || revnum < INT_MIN / 10) {
-                return 0;  
+            if(rev > INT_MAX/10 || rev < INT_MIN/10){
+                return 0;
             }
 
-            revnum = (revnum * 10) + ld; 
-            x /= 10; 
+            rev=(rev*10)+ld;
+            x=x/10; 
         }
-        return revnum;  
+        return rev;
     }
 };
