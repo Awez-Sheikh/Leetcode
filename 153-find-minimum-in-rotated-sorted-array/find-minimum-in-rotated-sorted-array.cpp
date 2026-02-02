@@ -1,21 +1,24 @@
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int l=0,h=nums.size()-1;
+        int low=0,high=nums.size()-1;
         int ans=INT_MAX;
-        while(l<=h){
-            int mid=(h+l)/2;
-            if(nums[l]<=nums[mid]){
-                ans=min(ans,nums[l]);
-                l=mid+1;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            // Optimization: If the current search space is already sorted
+            if (nums[low] <= nums[high]) {
+                ans = min(ans, nums[low]);
+                break;
+            }
+            if(nums[low]<=nums[mid]){   // left half is of no use
+                ans=min(ans,nums[low]); // here min element lies on index which is low
+                low=mid+1;
             }
             else{
-                h=mid-1;
                 ans=min(ans,nums[mid]);
-            }    
+                high=mid-1;
+            }
         }
         return ans;
-
-        
     }
 };
