@@ -6,4 +6,3 @@ from Employee
 group by employee_id
 having count(department_id)=1)
 or primary_flag = 'Y'
-
