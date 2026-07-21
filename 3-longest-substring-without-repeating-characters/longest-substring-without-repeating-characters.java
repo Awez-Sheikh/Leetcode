@@ -12,7 +12,7 @@ class Solution {
                 l++;
             }else{
                 len = r-l+1;
-                if(len>max_len) max_len=len;
+                max_len = Math.max(len,max_len);
                 set.add(s.charAt(r));
                 r++;
             }
